@@ -23,6 +23,17 @@ export default tseslint.config([
         project: "./tsconfig.json",
       },
     },
+    rules: {
+      "@typescript-eslint/prefer-nullish-coalescing": "off",
+      "@typescript-eslint/restrict-template-expressions": ["error", { allowNumber: true }],
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          argsIgnorePattern: "^_",
+        },
+      ],
+    },
   },
+
   eslintConfigPrettier,
 ]);

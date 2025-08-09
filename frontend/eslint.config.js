@@ -4,15 +4,11 @@ import globals from "globals";
 import eslintReact from "@eslint-react/eslint-plugin";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
-import jestDom from "eslint-plugin-jest-dom";
 import eslintConfigPrettier from "eslint-config-prettier/flat";
 import { globalIgnores } from "eslint/config";
 
 export default tseslint.config([
   globalIgnores(["dist"]),
-  {
-    ...jestDom.configs["flat/recommended"],
-  },
   {
     files: ["**/*.{ts,tsx}"],
     extends: [
@@ -26,7 +22,6 @@ export default tseslint.config([
     languageOptions: {
       globals: {
         ...globals.browser,
-        ...globals.vitest,
       },
       ecmaVersion: "latest",
       parserOptions: {

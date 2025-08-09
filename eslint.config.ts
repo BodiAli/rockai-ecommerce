@@ -10,13 +10,12 @@ export default tseslint.config([
     files: ["**/*.{ts,tsx}"],
     extends: [
       js.configs.recommended,
-      tseslint.configs.strictTypeChecked,
+      tseslint.configs.recommendedTypeChecked,
       tseslint.configs.stylisticTypeChecked,
     ],
     languageOptions: {
       globals: {
         ...globals.node,
-        ...globals.vitest,
       },
       ecmaVersion: "latest",
       parserOptions: {
@@ -25,7 +24,6 @@ export default tseslint.config([
     },
     rules: {
       "@typescript-eslint/prefer-nullish-coalescing": "off",
-      "@typescript-eslint/restrict-template-expressions": ["error", { allowNumber: true }],
       "@typescript-eslint/no-unused-vars": [
         "error",
         {

@@ -242,7 +242,7 @@ export const updateProduct = [
 
     const { title, description, price, category } = req.body;
 
-    const createdProduct = await productsModel.updateProduct({
+    const updatedProduct = await productsModel.updateProduct({
       id,
       title,
       description,
@@ -252,7 +252,7 @@ export const updateProduct = [
       cloudId,
     });
 
-    res.status(200).json({ msg: "Product updated successfully!", createdProduct });
+    res.status(200).json({ msg: "Product updated successfully!", updatedProduct });
   },
 ] as RequestHandler[];
 

@@ -41,7 +41,11 @@ export const getProducts = [
     const offset = (page - 1) * productsLimit;
 
     const products = await productsModel.getProducts(productsLimit, offset);
-    res.status(200).json({ products });
+
+    const totalProductsCount = await productsModel.getProductsCount();
+    const pages = Math.ceil(totalProductsCount / productsLimit) || 1;
+
+    res.status(200).json({ products, pages });
   },
 ] as RequestHandler[];
 

@@ -52,6 +52,13 @@ export const getProducts = [
 export const getProduct = async (req: Request<{ id: string }>, res: Response) => {
   const id = Number.parseInt(req.params.id);
 
+  if (Number.isNaN(id)) {
+    res
+      .status(404)
+      .json({ error: "Product not found! it may have been moved, deleted, or it might have never existed." });
+    return;
+  }
+
   const product = await productsModel.getProduct(id);
 
   if (!product) {

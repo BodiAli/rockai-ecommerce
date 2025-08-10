@@ -24,11 +24,13 @@ npm run dev
 
 ### API guide
 
-GET /api/products Fetch all products
-GET /api/products/:id Get a single product
-POST /api/products Create a new product
-PUT /api/products/:id Update a product
-DELETE /api/products/:id Delete a product
+<ul>
+  <li>GET /api/products Fetch all products</li>
+  <li>GET /api/products/:id Get a single product</li>
+  <li>POST /api/products Create a new product</li>
+  <li>PUT /api/products/:id Update a product</li>
+  <li>DELETE /api/products/:id Delete a product</li>
+</ul>
 
 GET http:localhost:3000/api/products
 

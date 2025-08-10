@@ -5,7 +5,8 @@
   "main": "app.ts",
   "type": "module",
   "scripts": {
-    "start": "npx tsx app.ts"
+    "build": "tsc",
+    "start": "node dist/app.js"
   },
   "keywords": [],
   "author": "Abdulrahman Ali",

@@ -76,7 +76,9 @@ const validateProduct = [
     .trim()
     .notEmpty()
     .withMessage(`Price ${validationErrors.emptyErr}`)
-    .isDecimal({ decimal_digits: "2", force_decimal: true })
+    .isLength({ max: 10 })
+    .withMessage(validationErrors.priceError)
+    .isDecimal({ decimal_digits: "2", force_decimal: false })
     .withMessage(validationErrors.priceError),
   body("category")
     .trim()
@@ -117,7 +119,6 @@ export const createProduct = [
 
     if (!errors.isEmpty()) {
       res.status(400).json({ errors: errors.array() });
-      await fs.rm(req.file.path);
       return;
     }
 

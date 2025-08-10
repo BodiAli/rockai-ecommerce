@@ -1,0 +1,33 @@
+.header {
+  display: grid;
+  padding: 1rem 0.5rem;
+  border-bottom: 2px solid #e1edf2;
+}
+
+.header > ul {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.header li {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.header a {
+  text-decoration: none;
+  color: #3200ff;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.header img {
+  width: 22px;
+}
+
+:global(a.active) {
+  border-bottom: 2px solid black;
+}

@@ -9,12 +9,12 @@ export default function App() {
   const queryString = new URLSearchParams(location.search);
   const currentPage = Number.parseInt(queryString.get("page") ?? "1");
 
-  const [products, dispatch, pages] = useGetProducts(currentPage);
+  const [products, dispatch, pages, fetchProducts] = useGetProducts(currentPage);
 
   return (
     <>
       <Header />
-      <Outlet context={{ products, pages, dispatch, currentPage }} />
+      <Outlet context={{ products, pages, dispatch, currentPage, fetchProducts }} />
       <ToastContainer hideProgressBar />
     </>
   );

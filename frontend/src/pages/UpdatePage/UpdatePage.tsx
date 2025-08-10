@@ -1,8 +1,9 @@
 import { useNavigate, useOutletContext, useParams } from "react-router";
-import { useEffect, useState, type ActionDispatch, type FormEvent } from "react";
+import { useState, type ActionDispatch, type FormEvent } from "react";
 import type { ACTION_TYPE, Product } from "../../types/types";
 import styles from "./UpdatePage.module.css";
 import { toast } from "react-toastify";
+import { useGetProduct } from "../../utils/customHooks";
 
 export default function UpdatePage() {
   const { dispatch } = useOutletContext<{
@@ -11,9 +12,9 @@ export default function UpdatePage() {
 
   const [errorsArr, setErrorsArr] = useState<[] | { msg: string }[]>([]);
   const [loading, setLoading] = useState(false);
-  const [product, setProduct] = useState<Product | null>(null);
   const navigate = useNavigate();
   const params = useParams<{ id: string }>();
+  const product = useGetProduct("/manage", params.id);
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -53,36 +54,6 @@ export default function UpdatePage() {
 
     void handler();
   }
-
-  useEffect(() => {
-    async function fetchProduct() {
-      try {
-        const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/products/${params.id}`);
-
-        if (!res.ok) {
-          if (res.status === 404) {
-            const { error } = (await res.json()) as { error: string };
-
-            toast.error(error);
-
-            void navigate("/manage", { viewTransition: true });
-            return;
-          }
-
-          throw new Error("Failed to fetch product, please try again later.");
-        }
-
-        const { product } = (await res.json()) as { product: Product };
-
-        setProduct(product);
-      } catch {
-        toast.error("Failed to fetch product, please try again later.");
-        void navigate("/manage", { viewTransition: true, replace: true });
-      }
-    }
-
-    void fetchProduct();
-  }, [navigate, params.id]);
 
   return (
     <main className={styles.main}>

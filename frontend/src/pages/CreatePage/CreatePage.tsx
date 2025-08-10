@@ -1,14 +1,15 @@
-import { useState, type ActionDispatch, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import styles from "./CreatePage.module.css";
 import { toast } from "react-toastify";
-import type { ACTION_TYPE, Product } from "../../types/types";
+import type { Product } from "../../types/types";
 import { useNavigate, useOutletContext } from "react-router";
 
 export default function CreatePage() {
-  const { dispatch } = useOutletContext<{
-    dispatch: ActionDispatch<[action: ACTION_TYPE]>;
+  const { fetchProducts } = useOutletContext<{
+    fetchProducts: () => Promise<void>;
   }>();
   const [errorsArr, setErrorsArr] = useState<[] | { msg: string }[]>([]);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   function handleSubmit(e: FormEvent) {
@@ -19,6 +20,7 @@ export default function CreatePage() {
     const formData = new FormData(form);
 
     const handler = async () => {
+      setLoading(true);
       try {
         const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/products`, {
           method: "POST",
@@ -34,13 +36,15 @@ export default function CreatePage() {
           throw new Error("Failed to create product, please try again later.");
         }
 
-        const { msg, createdProduct } = (await res.json()) as { msg: string; createdProduct: Product };
+        const { msg } = (await res.json()) as { msg: string; createdProduct: Product };
 
-        dispatch({ type: "add-product", payload: createdProduct });
+        await fetchProducts();
         toast.success(msg);
-        void navigate("/manage", { viewTransition: true });
+        void navigate(`/manage?page=1`, { viewTransition: true });
       } catch {
         toast.error("Failed to create product, please try again later.");
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -76,7 +80,9 @@ export default function CreatePage() {
           <input type="file" name="productImage" />
         </label>
 
-        <button type="submit">Create Product</button>
+        <button disabled={loading} type="submit">
+          Create Product
+        </button>
       </form>
     </main>
   );

@@ -34,6 +34,11 @@
   gap: 1rem;
 }
 
+.descriptionContainer {
+  max-height: 150px;
+  overflow: hidden;
+}
+
 .product .category {
   background-color: rgba(128, 128, 128, 0.213);
   padding: 0.3rem;

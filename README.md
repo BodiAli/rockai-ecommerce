@@ -111,7 +111,7 @@ DELETE http:localhost:3000/api/products/2
 Expected response:
 
 ```json
-204 NO Content
+204 No Content
 ```
 
 ## Setup instructions (frontend):

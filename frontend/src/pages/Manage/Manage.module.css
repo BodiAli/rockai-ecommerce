@@ -1,0 +1,110 @@
+.main {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.productsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(700px, 1fr));
+  gap: 1rem;
+}
+
+.product {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 2px solid #e1edf2;
+  padding: 1rem;
+  gap: 0 2rem;
+  border-radius: 5px;
+}
+
+.product .text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1.1rem;
+}
+
+.product .titleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.product .category {
+  background-color: rgba(128, 128, 128, 0.213);
+  padding: 0.3rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.product img {
+  width: 100%;
+  height: 150px;
+  aspect-ratio: 1 / 1;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.product .manageButtons {
+  grid-column: 1 / 3;
+}
+
+.product b {
+  font-weight: 500;
+}
+
+.manageButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.manageButtons button {
+  font-size: 1rem;
+  background-color: #e1edf2;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: filter 200ms;
+  &:hover {
+    filter: brightness(0.9);
+  }
+}
+
+.pagination {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.pagination > button {
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 200ms;
+  background-color: #3d889f;
+}
+
+.pagination > .active {
+  border: 2px solid black;
+}
+
+.pagination > .disabled {
+  background-color: rgba(72, 130, 180, 0.463);
+  cursor: not-allowed;
+}

@@ -80,7 +80,7 @@ export default function ProductCard(product: Product) {
         </div>
         <div className={styles.priceContainer}>
           <p>
-            <b>Price:</b> {product.price}
+            <b>Price:</b> {`${product.price}$`}
           </p>
           {cartButtonJSX}
         </div>

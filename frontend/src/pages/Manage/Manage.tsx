@@ -62,7 +62,7 @@ export default function Manage() {
                   </div>
                   <div className={styles.priceContainer}>
                     <p>
-                      <b>Price:</b> {product.price}
+                      <b>Price:</b> {`${product.price}$`}
                     </p>
                   </div>
                 </div>

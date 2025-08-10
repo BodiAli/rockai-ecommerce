@@ -20,4 +20,8 @@ export type ACTION_TYPE =
   | {
       type: "delete-product";
       payload: Product;
+    }
+  | {
+      type: "update-product";
+      payload: Product;
     };

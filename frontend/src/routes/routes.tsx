@@ -23,7 +23,7 @@ const routes: RouteObject[] = [
             Component: Home,
           },
           {
-            path: "products/:productId",
+            path: "products/:id",
             Component: ProductDetails,
           },
           {

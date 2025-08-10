@@ -76,6 +76,8 @@ const validateProduct = [
     .trim()
     .notEmpty()
     .withMessage(`Price ${validationErrors.emptyErr}`)
+    .isNumeric({ no_symbols: true })
+    .withMessage(validationErrors.priceError)
     .isLength({ max: 10 })
     .withMessage(validationErrors.priceError)
     .isDecimal({ decimal_digits: "2", force_decimal: false })

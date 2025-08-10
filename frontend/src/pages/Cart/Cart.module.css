@@ -1,0 +1,28 @@
+.main {
+  padding: 1rem;
+}
+
+.main > p {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.buttonContainer {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.buttonContainer > button {
+  font-size: 1.2rem;
+  background-color: #5aa7bea3;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: filter 200ms;
+  line-height: 1.3;
+  &:hover {
+    filter: brightness(0.9);
+  }
+}

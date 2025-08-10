@@ -3,8 +3,10 @@ import App from "../App";
 import Home from "../pages/Home/Home";
 import ProductDetails from "../pages/ProductDetails/ProductDetails";
 import Cart from "../pages/Cart/Cart";
+import Manage from "../pages/Manage/Manage";
 import Notfound from "../pages/Notfound/Notfound";
 import ErrorHandler from "../components/ErrorHandler/ErrorHandler";
+import CreatePage from "../pages/CreatePage/CreatePage";
 
 const routes: RouteObject[] = [
   {
@@ -26,6 +28,14 @@ const routes: RouteObject[] = [
           {
             path: "cart",
             Component: Cart,
+          },
+          {
+            path: "manage",
+            Component: Manage,
+          },
+          {
+            path: "manage/create",
+            Component: CreatePage,
           },
         ],
       },

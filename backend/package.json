@@ -1,7 +1,7 @@
 {
   "name": "e-commerce-api",
   "version": "1.0.0",
-  "description": "project description",
+  "description": "RESTFUL API for RockAI e-commerce project",
   "main": "app.ts",
   "type": "module",
   "scripts": {

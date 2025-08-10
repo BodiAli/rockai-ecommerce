@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Outlet, useLocation } from "react-router";
 import { ToastContainer } from "react-toastify";
 import Header from "./components/Header/Header";
-import useGetProducts from "./utils/customHooks";
+import { useGetProducts } from "./utils/customHooks";
 import type { Product } from "./types/types";
 
 export default function App() {

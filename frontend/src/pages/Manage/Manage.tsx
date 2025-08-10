@@ -1,6 +1,6 @@
 import { useNavigate, useOutletContext } from "react-router";
-import { useState, type ActionDispatch } from "react";
-import type { ACTION_TYPE, Product } from "../../types/types";
+import { useState } from "react";
+import type { Product } from "../../types/types";
 import CreateProduct from "../../components/CreateProductButton/CreateProductButton";
 import styles from "./Manage.module.css";
 import { toast } from "react-toastify";
@@ -9,7 +9,6 @@ export default function Manage() {
   const { products, pages, currentPage, fetchProducts } = useOutletContext<{
     products: Product[];
     pages: number;
-    dispatch: ActionDispatch<[action: ACTION_TYPE]>;
     currentPage: number;
     fetchProducts: () => Promise<void>;
   }>();

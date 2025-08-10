@@ -69,3 +69,10 @@
 .product b {
   font-weight: 500;
 }
+
+@media (max-width: 725px) {
+  .product {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

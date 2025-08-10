@@ -52,3 +52,9 @@
 .errors.visible {
   display: block;
 }
+
+@media (max-width: 725px) {
+  .updateForm {
+    max-width: 100%;
+  }
+}

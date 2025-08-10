@@ -113,3 +113,9 @@
   background-color: rgba(72, 130, 180, 0.463);
   cursor: not-allowed;
 }
+
+@media (max-width: 725px) {
+  .productsContainer {
+    grid-template-columns: 1fr;
+  }
+}

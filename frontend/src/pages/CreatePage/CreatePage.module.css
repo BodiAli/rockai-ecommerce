@@ -52,3 +52,9 @@
 .errors.visible {
   display: block;
 }
+
+@media (max-width: 725px) {
+  .createForm {
+    max-width: 100%;
+  }
+}

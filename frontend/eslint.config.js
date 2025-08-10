@@ -31,6 +31,12 @@ export default tseslint.config([
     },
     rules: {
       "@eslint-react/naming-convention/component-name": ["warn", "PascalCase"],
+      "@typescript-eslint/restrict-template-expressions": [
+        "error",
+        {
+          allowNumber: true,
+        },
+      ],
     },
   },
   eslintConfigPrettier,

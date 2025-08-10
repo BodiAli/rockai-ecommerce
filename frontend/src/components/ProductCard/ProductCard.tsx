@@ -2,6 +2,7 @@ import { useNavigate, useOutletContext } from "react-router";
 import type { Product } from "../../types/types";
 import styles from "./ProductCard.module.css";
 import type { Dispatch, JSX, MouseEvent, SetStateAction } from "react";
+import { toast } from "react-toastify";
 
 export default function ProductCard(product: Product) {
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ export default function ProductCard(product: Product) {
       localStorage.setItem("cart", JSON.stringify(newCart));
       return newCart;
     });
+    toast.success(`${product.title} is added to cart`);
   }
 
   function handleRemoveFromCart(e: MouseEvent, product: Product) {
@@ -28,6 +30,7 @@ export default function ProductCard(product: Product) {
       localStorage.setItem("cart", JSON.stringify(newCart));
       return newCart;
     });
+    toast.success(`${product.title} is removed from cart`);
   }
 
   let cartButtonJSX: JSX.Element;

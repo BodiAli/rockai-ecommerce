@@ -29,6 +29,7 @@ export default function ProductCard(product: Product) {
       return newCart;
     });
   }
+
   let cartButtonJSX: JSX.Element;
 
   if (

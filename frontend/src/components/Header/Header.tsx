@@ -21,9 +21,9 @@ export default function Header() {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/admin" viewTransition>
+          <NavLink to="/manage" viewTransition>
             <img src={manageIcon} alt="Manage products page" />
-            Admin
+            Manage
           </NavLink>
         </li>
       </ul>

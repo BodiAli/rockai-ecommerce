@@ -1,0 +1,13 @@
+.createProduct {
+  text-decoration: none;
+  background-color: #3d889f;
+  color: #000;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  align-self: center;
+  font-size: 1.2rem;
+  transition: filter 200ms;
+  &:hover {
+    filter: brightness(1.1);
+  }
+}

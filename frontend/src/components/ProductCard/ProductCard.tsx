@@ -62,7 +62,7 @@ export default function ProductCard(product: Product) {
   return (
     <div
       onClick={() => {
-        void navigate(`/product/${product.id}`, { viewTransition: true });
+        void navigate(`/products/${product.id}`, { viewTransition: true });
       }}
       key={product.id}
       className={styles.product}
